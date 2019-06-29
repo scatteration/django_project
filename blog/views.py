@@ -1,13 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 
 # Create your views here.
-from django.shortcuts import HttpResponse
-
 
 # Create your views here.
 def post_list(request):
     gonderi = "Burada gonderiler listelenecek"
-    return HttpResponse(gonderi)
+    return render(request, "blog/post-list.html")
 
 
 def post_update(request):
