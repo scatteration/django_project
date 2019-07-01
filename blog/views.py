@@ -1,11 +1,12 @@
 from django.shortcuts import render, HttpResponse
+from .models import Blog
+from .forms import IletisimForm
 
-# Create your views here.
 
-# Create your views here.
 def post_list(request):
-    gonderi = "Burada gonderiler listelenecek"
-    return render(request, "blog/post-list.html")
+    posts = Blog.objects.all()
+    icerik = {"posts": posts}
+    return render(request, "blog/post-list.html", context=icerik)
 
 
 def post_update(request):
@@ -22,3 +23,7 @@ def post_create(request):
     create = '<b>Burada gonderi olusturulacaktir</b>'
     return HttpResponse(create)
 
+
+def iletisim(request):
+    form = IletisimForm()
+    return render(request, "blog/iletisim.html", context={"form": form})

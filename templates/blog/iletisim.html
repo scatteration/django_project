@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block icerik %}
+    <form method="get" action="{% url 'contact' %}">
+        <div class="container">
+
+            <div class="col-md-auto">
+
+                {% for field in form %}
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-md-1">
+                                {{ field.label }}
+                            </div>
+                            <div class="col-md-auto">
+                                {{ field }}
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <input type="submit" class="btn-primary">
+
+            </div>
+
+        </div>
+    </form>
+{% endblock %}
